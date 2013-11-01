@@ -12,7 +12,7 @@ function Seq (xs) {
         builder.call(this, saw, xs || []);
     });
 
-    process.setImmediate(function () {
+    setImmediate(function () {
         ch['catch'](function (err) {
             console.error(err.stack ? err.stack : err)
         });
@@ -135,7 +135,7 @@ function builder (saw, xs) {
         running ++;
 
         var step = saw.step;
-        process.setImmediate(function () {
+        setImmediate(function () {
             action(step, key, cb_, function (args) {
                 if (!args) errors ++;
 
